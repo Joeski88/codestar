@@ -4,5 +4,6 @@ from .models import Post
 
 # Create your views here.
 
-def my_blog(request):
-    return HttpResponse("Hello, Blog")
+class PostList(generic.ListView):
+    queryset = Post.objects.filter()
+    template_name = "post_list.html"
