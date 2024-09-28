@@ -20,5 +20,6 @@ def post_detail(request, slug):
         "coder": "Joe Howley"},
         )
     
-def about(request):
-    return render(request, 'about.html')
+def about_view(request):
+    about = About.objects.all().order_by('-updated_on').first()
+    return render(request, 'about/about.html', {"about": about},)
